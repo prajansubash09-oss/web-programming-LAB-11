@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Validation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #222;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            background-color: #4338ca;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3025a8;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h2>User Validation</h2>
+        <p>Enter your login credentials to continue.</p>
+
+        <form onsubmit="validateUser(event)">
+
+            <label>Login Name</label>
+            <input type="text" id="username"
+                   placeholder="Enter username" required>
+
+            <label>Password</label>
+            <input type="password" id="password"
+                   placeholder="Enter password" required>
+
+            <button type="submit">Login →</button>
+
+        </form>
+
+        <div id="message"></div>
+
+    </div>
+
+    <script>
+
+        function validateUser(event) {
+
+            event.preventDefault();
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var message = document.getElementById("message");
+
+            if (username === "prajan" && password === "Prajan@123") {
+
+                message.style.color = "green";
+                message.innerHTML = "Login Successful! Welcome " + username;
+
+            }
+            else {
+
+                message.style.color = "red";
+                message.innerHTML = "Invalid Username or Password!";
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>
